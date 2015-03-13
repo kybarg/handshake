@@ -55,9 +55,9 @@
       });
       function authInfo(response) {
         if (response.session) {
-          alert('user: '+response.session.mid);
+          console.dir('user: '+response.session.mid);
         } else {
-          alert('not auth');
+          console.dir('not auth');
         }
       }
       VK.Auth.getLoginStatus(authInfo);

@@ -32,7 +32,7 @@
             self.selected = users[0];
           });*/
 
-    VK.Api.call('friends.get', { fields: 'photo'}, function(data) { 
+    VK.Api.call('friends.get', { fields: 'photo', v: '5.29'}, function(data) { 
         // Действия с полученными данными 
         //self.users = data.response.items;
         //self.selected = data.response.items[0];

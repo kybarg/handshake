@@ -20,6 +20,7 @@
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
       <h1>Angular Material - Starter App</h1>
+      <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
     </md-toolbar>
 
     <div flex layout="row">
@@ -47,18 +48,20 @@
 
     </div>
 
-    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
-    <script type="text/javascript"> 
+    <script src="http://vk.com/js/api/openapi.js"></script>
+    <script>
       VK.init({
-        apiId: 4825717
+        apiId: '4825717'
       });
-
-      VK.Auth.login(testMe);
-      function testMe(response) {
-          if (response.status == "connected") {
-              window.location = "{% url publicauth-complete 'vkontakte' %}"
-          }
-      };
+      function authInfo(response) {
+        if (response.session) {
+          alert('user: '+response.session.mid);
+        } else {
+          alert('not auth');
+        }
+      }
+      VK.Auth.getLoginStatus(authInfo);
+      VK.UI.button('login_button');
     </script>
 
     <!-- Angular Material Dependencies -->

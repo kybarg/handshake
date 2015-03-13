@@ -34,8 +34,8 @@
 
     VK.Api.call('friends.get', { fields: 'photo'}, function(data) { 
         // Действия с полученными данными 
-        self.users = data.items;
-        self.selected = data.items[0];
+        self.users = data.response.items;
+        self.selected = data.response.items[0];
 
         console.dir(data);
     });

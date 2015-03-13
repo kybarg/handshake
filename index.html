@@ -52,6 +52,13 @@
       VK.init({
         apiId: 4825717
       });
+
+      VK.Auth.login(testMe);
+      function testMe(response) {
+          if (response.status == "connected") {
+              window.location = "{% url publicauth-complete 'vkontakte' %}"
+          }
+      };
     </script>
 
     <!-- Angular Material Dependencies -->
@@ -64,7 +71,7 @@
 
     <script src="./src/users/Users.js"></script>
     <script src="./src/users/UserController.js"></script>
-    <script src="./src/users/UserService.js"></script>
+    <!--<script src="./src/users/UserService.js"></script>-->
 
     <script type="text/javascript">
 

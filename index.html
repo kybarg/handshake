@@ -59,11 +59,22 @@
     <script src="./src/users/UserController.js"></script>
     <script src="./src/users/UserService.js"></script>
 
+    <script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+    <script type="text/javascript"> 
+      VK.init(function() { 
+         // API initialization succeeded 
+         // Your code here 
+      }, function() { 
+         // API initialization failed 
+         // Can reload page here 
+    }, '5.29'); 
+    </script>
+
     <script type="text/javascript">
 
           angular
               .module('starterApp', ['ngMaterial', 'users'])
-              .config(function($mdThemingProvider, $mdIconProvider){
+              .config(function($mdThemingProvider, $mdIconProvider, authProvider){
 
                   $mdIconProvider
                       .defaultIconSet("./assets/svg/avatars.svg", 128)
@@ -74,10 +85,9 @@
                       .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
                       .icon("phone"      , "./assets/svg/phone.svg"       , 512);
 
-                      $mdThemingProvider.theme('default')
-                          .primaryPalette('brown')
-                          .accentPalette('red');
-
+                  $mdThemingProvider.theme('default')
+                      .primaryPalette('brown')
+                      .accentPalette('red');
               });
 
     </script>

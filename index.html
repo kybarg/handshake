@@ -29,7 +29,7 @@
           <md-list>
             <md-item ng-repeat="it in ul.users">
                 <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-                  <md-icon md-svg-icon="{{it.photo}}" class="avatar"></md-icon>
+                  <img ng-src="{{it.photo}}" class="avatar" alt="{{it.first_name}}">
                   {{it.first_name}}
                 </md-button>
             </md-item>
@@ -37,7 +37,7 @@
         </md-sidenav>
 
         <md-content flex id="content">
-          <md-icon md-svg-icon="{{ul.selected.photo}}" class="avatar"></md-icon>
+          <img ng-src="{{ul.selected.photo}}" class="avatar" alt="{{ul.selected.first_name}}">
           <h2>{{ul.selected.first_name}}</h2>
           <p>{{ul.selected.last_name}}</p>
 
@@ -93,8 +93,8 @@
                       .icon("phone"      , "./assets/svg/phone.svg"       , 512);
 
                   $mdThemingProvider.theme('default')
-                      .primaryPalette('brown')
-                      .accentPalette('red');
+                      .primaryPalette('indigo')
+                      .accentPalette('pink');
               });
 
     </script>

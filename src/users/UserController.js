@@ -25,12 +25,17 @@
 
     // Load all registered users
 
-    userService
+    /*userService
           .loadAllUsers()
           .then( function( users ) {
             self.users    = [].concat(users);
             self.selected = users[0];
-          });
+          });*/
+
+    VK.api("friends.get", { fields: 'photo'}, function(data) { 
+        // Действия с полученными данными 
+        self.users = data.items;
+    });
 
     // *********************************
     // Internal methods
